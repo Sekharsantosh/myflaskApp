@@ -1,0 +1,2 @@
+Tesseract-OCR
+yolov8x.pt
