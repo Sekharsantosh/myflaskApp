@@ -20,7 +20,9 @@ for contour in contours:
 # Import the Pytesseract library
 import pytesseract
 # Configure Pytesseract
-pytesseract.pytesseract.tesseract_cmd = r'Tesseract-OCR\tesseract.exe'  # Specify the path to the Tesseract executable
+#for my PC
+#pytesseract.pytesseract.tesseract_cmd = r'Tesseract-OCR\tesseract.exe' 
+pytesseract.pytesseract.tesseract_cmd = r'tesseract'  # Specify the path to the Tesseract executable
 # Iterate over potential number plate contours
 for contour in number_plate_contours:
     # Extract ROI (Region of Interest)
