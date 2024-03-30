@@ -29,8 +29,8 @@ def postprocess_text(text):
 
 
 # Load image
-image = cv2.imread(r'C:\Users\NandaKishore\Downloads\text.png')
-pytesseract.pytesseract.tesseract_cmd = r'Tesseract-OCR\tesseract.exe' 
+image = cv2.imread(r'11.jpeg')
+pytesseract.pytesseract.tesseract_cmd = r'tesseract' 
 # Preprocessing
 processed_image = preprocess_image(image)
 
