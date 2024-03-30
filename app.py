@@ -94,7 +94,7 @@ def prediction1(img):
         area = cv2.contourArea(contour)
         if aspect_ratio > 2.0 and aspect_ratio < 5.0 and area > 1000:
             number_plate_contours.append(contour)
-    pytesseract.pytesseract.tesseract_cmd = r'Tesseract-OCR\tesseract.exe'
+    pytesseract.pytesseract.tesseract_cmd = r'tesseract'
     for contour in number_plate_contours:
         (x, y, w, h) = cv2.boundingRect(contour)
         roi = blurred[y:y+h, x:x+w]
@@ -131,7 +131,7 @@ def TextImage():
 @app.route('/predict1',methods=["GET","POST"])
 def predict1():
     file=request.files['file']
-    file_path = r"D:\Project Space\MYFRONTEND\static\Storage" + file.filename
+    file_path = r"static\Storage" + file.filename
     file.save(file_path)  
     k=prediction1(file_path)
     return render_template('number_plate_image.html',ans=k)
@@ -179,10 +179,10 @@ def ObjImage():
 @app.route('/predict2',methods=["GET","POST"])
 def predict2():
     file=request.files['file']
-    file_path = r"D:\Project Space\MYFRONTEND\static\Storage" + file.filename
+    file_path = r"static\Storage" + file.filename
     file.save(file_path)  
     k=solve(file_path)
     return render_template('object_detection_image.html',file=k[7:])
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
